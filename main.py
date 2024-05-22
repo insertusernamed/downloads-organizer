@@ -71,3 +71,15 @@ for d in DEST_DIRS:
     dir_path = os.path.join(BASE_PATH, d)
     if not os.path.isdir(dir_path):
         os.mkdir(dir_path)
+
+# Mapping files from Downloads folder based on their file extension
+DOWNLOADS_PATH = os.path.join(BASE_PATH)
+files_mapping = collections.defaultdict(list)
+files_list = os.listdir(DOWNLOADS_PATH)
+
+for file_name in files_list:
+    if file_name[0] != ".":
+        file_ext = file_name.split(".")[-1]
+        files_mapping[file_ext].append(file_name)
+
+pprint(files_mapping)
