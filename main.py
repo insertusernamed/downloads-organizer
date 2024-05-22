@@ -61,3 +61,13 @@ COMPRESSED_EXTENSIONS = [
     "xz",
 ]
 INSTALLER_EXTENSIONS = ["dmg", "exe", "iso", "msi"]
+
+# Defining the destination directories
+BASE_PATH = os.path.join(os.getenv("USERPROFILE"), "Downloads")
+DEST_DIRS = ["Audio", "Video", "Images", "Documents", "Applications", "Other"]
+
+# Creating the destination directories
+for d in DEST_DIRS:
+    dir_path = os.path.join(BASE_PATH, d)
+    if not os.path.isdir(dir_path):
+        os.mkdir(dir_path)
